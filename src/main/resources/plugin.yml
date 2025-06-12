@@ -1,0 +1,7 @@
+name: dchookspigot
+version: '1.0.0+spigot'
+main: com.github.pinmacaroon.dchookspigot.Dchookspigot
+load: STARTUP
+authors: [ pin ]
+description: discord webhook thing
+website: https://pinmacaroon.github.io/
