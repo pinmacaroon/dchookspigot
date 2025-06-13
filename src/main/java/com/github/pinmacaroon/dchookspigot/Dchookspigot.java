@@ -30,7 +30,7 @@ public final class Dchookspigot extends JavaPlugin {
             .setMajorVersion(1)
             .setMinorVersion(0)
             .setPatchVersion(0)
-            .setBuildMetadata("fabric")
+            .setBuildMetadata("spigot")
             //.setPreReleaseVersion("alpha", "2")
             .build();
     private static Bot BOT;
@@ -132,6 +132,8 @@ public final class Dchookspigot extends JavaPlugin {
 
         if(this.getConfig().getBoolean("functions.update")) VersionChecker.checkVersion();
 
+        this.getServer().getPluginManager().registerEvents(new EventListeners(), this);
+
         this.getLogger().info("all checks succeeded, starting webhook managing! version: " + VERSION);
         if(this.getConfig().getBoolean("functions.promotions.enabled")){
             this.getLogger().info(
@@ -143,6 +145,9 @@ public final class Dchookspigot extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        BOT.stop();
+        EventListeners.onStop();
+        HTTPCLIENT.shutdown();
+        this.saveConfig();
     }
 }

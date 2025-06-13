@@ -1,8 +1,8 @@
 package com.github.pinmacaroon.dchookspigot.bot;
 
-import com.github.pinmacaroon.dchook.bot.event.MessageReceivedListener;
-import com.github.pinmacaroon.dchook.bot.event.ReadyEventListener;
-import com.github.pinmacaroon.dchook.bot.event.SlashCommandInteractionListener;
+import com.github.pinmacaroon.dchookspigot.bot.event.MessageReceivedListener;
+import com.github.pinmacaroon.dchookspigot.bot.event.ReadyEventListener;
+import com.github.pinmacaroon.dchookspigot.bot.event.SlashCommandInteractionListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;

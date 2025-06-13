@@ -1,7 +1,7 @@
 package com.github.pinmacaroon.dchookspigot.bot.event;
 
-import com.github.pinmacaroon.dchook.bot.Bot;
-import com.github.pinmacaroon.dchook.bot.commands.*;
+import com.github.pinmacaroon.dchookspigot.bot.Bot;
+import com.github.pinmacaroon.dchookspigot.bot.commands.*;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.utils.FileUpload;

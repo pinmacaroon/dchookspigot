@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class WaypointParser {
     private static final Pattern WAYPOINT_PATTERN = Pattern.compile(
             //               name    marker   x        y        z        yaw       ?        ?                  dimension
-            "^xaero-waypoint:([^:]+):(.{1,2}):(-?\\d+):(-?\\d+):(-?\\d+):(-?\\d+):([^:]+):([^:]+):Internal-(the-nether|overworld|the-end)-waypoints$"
+            "^xaero-waypoint:([^:]+):(.{1,2}):(-?\\d+):(-?\\d+):(-?\\d+):(-?\\d+):([^:]+):([^:]+):Internal-(the-nether|overworld|the-end)[-waypoints]?$"
     );
 
     public static boolean isWaypoint(String text) {

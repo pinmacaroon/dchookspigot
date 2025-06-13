@@ -1,6 +1,6 @@
 package com.github.pinmacaroon.dchookspigot.bot.event;
 
-import com.github.pinmacaroon.dchook.bot.Bot;
+import com.github.pinmacaroon.dchookspigot.bot.Bot;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
