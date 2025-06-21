@@ -141,7 +141,7 @@ public class EventListeners implements Listener {
                     list.get(3)
             ));
         } else request_body.put("content", MarkdownSanitizer.escape(event.getMessage()));
-        request_body.put("username", MarkdownSanitizer.escape(event.getPlayer().getName()));
+        request_body.put("username", event.getPlayer().getName());
         request_body.put("avatar_url", "https://crafthead.net/helm/" + event.getPlayer().getUniqueId());
 
         HttpRequest post = HttpRequest.newBuilder()

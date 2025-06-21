@@ -29,7 +29,7 @@ public final class Dchookspigot extends JavaPlugin {
     public static final Version VERSION = new Version.Builder()
             .setMajorVersion(1)
             .setMinorVersion(0)
-            .setPatchVersion(0)
+            .setPatchVersion(1)
             .setBuildMetadata("spigot")
             //.setPreReleaseVersion("alpha", "2")
             .build();
