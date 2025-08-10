@@ -2,7 +2,6 @@ package com.github.pinmacaroon.dchookspigot.util;
 
 import com.github.pinmacaroon.dchookspigot.Dchookspigot;
 import net.dv8tion.jda.api.utils.MarkdownSanitizer;
-import org.bukkit.Achievement;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -17,7 +16,6 @@ import java.net.http.HttpResponse;
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 

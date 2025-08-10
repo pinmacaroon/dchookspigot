@@ -1,5 +1,5 @@
 name: dchookspigot
-version: '1.0.2+spigot.1.12'
+version: '1.0.2+spigot.1.17'
 main: com.github.pinmacaroon.dchookspigot.Dchookspigot
 load: STARTUP
 authors: [ pin ]

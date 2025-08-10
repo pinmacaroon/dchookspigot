@@ -30,7 +30,7 @@ public final class Dchookspigot extends JavaPlugin {
             .setMajorVersion(1)
             .setMinorVersion(0)
             .setPatchVersion(2)
-            .setBuildMetadata("spigot", "1", "8", "8")
+            .setBuildMetadata("spigot", "1", "17")
             //.setPreReleaseVersion("alpha", "2")
             .build();
     private static Bot BOT;
