@@ -9,9 +9,10 @@ public class TimeCommand {
     public static void run(SlashCommandInteractionEvent event) {
         String response = "The current in-game time in the overworld is **%s**! The weather is %s%s!".formatted(
                 TimeConverter.timeOfDayToHoursMinutes2(Dchookspigot.getPlugin(Dchookspigot.class).getServer().getWorlds().get(0).getTime()),
-                (!Dchookspigot.getPlugin(Dchookspigot.class).getServer().getWorlds().get(0).isClearWeather()) ? "rainy" : "clear",
-                (Dchookspigot.getPlugin(Dchookspigot.class).getServer().getWorlds().get(0).isThundering()) ? " and it is thundering!" : ""
+                (Dchookspigot.getPlugin(Dchookspigot.class).getServer().getWorlds().get(0).hasStorm()) ? "rainy" : "clear",
+                (Dchookspigot.getPlugin(Dchookspigot.class).getServer().getWorlds().get(0).isThundering()) ? " and it is thundering" : ""
         );
+        //event.getChannel().sendMessage(String.format("hasStorm()=%s\nisThundering()=%s", Dchookspigot.getPlugin(Dchookspigot.class).getServer().getWorlds().get(0).hasStorm(), Dchookspigot.getPlugin(Dchookspigot.class).getServer().getWorlds().get(0).isThundering())).queue();
         event.reply(response).setEphemeral(event.getOption("ephemeral", false, OptionMapping::getAsBoolean)).queue();
     }
 }

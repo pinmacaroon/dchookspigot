@@ -3,6 +3,7 @@ package com.github.pinmacaroon.dchookspigot.util;
 import com.github.pinmacaroon.dchookspigot.Dchookspigot;
 import com.github.zafarkhaja.semver.Version;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.net.URI;
@@ -26,7 +27,7 @@ public class VersionChecker {
                 return;
             }
             int status = response.statusCode();
-            JsonArray body = JsonParser.parseString(response.body()).getAsJsonArray();
+            JsonArray body = Dchookspigot.GSON.fromJson(response.body(), JsonArray.class);
             if(status != 200){
                 System.out.println("the version list couldn't be received, modrinth said sent a 404");
                 return;

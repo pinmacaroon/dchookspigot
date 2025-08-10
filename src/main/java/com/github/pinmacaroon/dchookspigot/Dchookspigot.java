@@ -30,7 +30,7 @@ public final class Dchookspigot extends JavaPlugin {
             .setMajorVersion(1)
             .setMinorVersion(0)
             .setPatchVersion(2)
-            .setBuildMetadata("spigot")
+            .setBuildMetadata("spigot", "1", "8", "8")
             //.setPreReleaseVersion("alpha", "2")
             .build();
     private static Bot BOT;
@@ -95,7 +95,7 @@ public final class Dchookspigot extends JavaPlugin {
 
             HttpResponse<String> response = HTTPCLIENT.send(get_webhook, HttpResponse.BodyHandlers.ofString());
             int status = response.statusCode();
-            JsonObject body = JsonParser.parseString(response.body()).getAsJsonObject();
+            JsonObject body = GSON.fromJson(response.body(), JsonObject.class);
             if(status != 200){
                 this.getLogger().info(
                         "the webhook was not found or couldn't reach discord servers! discord said: '%s'".formatted(
@@ -133,7 +133,7 @@ public final class Dchookspigot extends JavaPlugin {
     public void onDisable() {
         BOT.stop();
         EventListeners.onStop();
-        HTTPCLIENT.shutdown();
+        //HTTPCLIENT.shutdown();
         this.saveConfig();
     }
 }
