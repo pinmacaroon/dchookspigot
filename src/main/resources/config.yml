@@ -8,6 +8,7 @@ functions:
         enabled: true
         token: TOKEN
     update: true
+    # unstable/broken beta feature
     status_channels:
         player_count:
             enabled: false

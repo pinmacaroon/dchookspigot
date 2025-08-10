@@ -24,12 +24,13 @@ import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 public class EventListeners implements Listener {
 
     private boolean hasReadyMessageBeenSent = false;
 
-    private static void setupStatChannel(Bot bot, String id, String name){
+    private static void setupStatChannel(Bot bot, String id, String name, int retry){
         if (Dchookspigot.CONFIG.getBoolean("functions.status_channels."+id+".enabled")){
             Guild guild = bot.getJDA().getGuildById(Dchookspigot.guild_id);
             if(guild == null){
@@ -44,8 +45,13 @@ public class EventListeners implements Listener {
                 return;
             }
             System.out.println("channel");
-            channel.getManager().setName(name).queue();
+            // TODO fix the damn rate limit thingamabop
+            channel.getManager().setName(name).queue(x -> {}, throwable -> {});
         }
+    }
+
+    private static void setupStatChannel(Bot bot, String id, String name){
+        setupStatChannel(bot, id, name, 0);
     }
 
     public static void onInit() {
