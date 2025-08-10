@@ -32,14 +32,14 @@ public class MessageReceivedListener extends ListenerAdapter {
         String content;
 
         if (message.getMessageReference() != null) {
-            reply = "§9<@%s -> ".formatted(
+            reply = String.format("§9<@%s -> ",
                     message.getReferencedMessage().getAuthor().getName()
             );
         } else {
             reply = "§9<";
         }
 
-        signature = "@%s> ".formatted(
+        signature = String.format("@%s> ",
                 message.getAuthor().getName()
         );
 

@@ -110,7 +110,7 @@ public class EventListeners implements Listener {
         String[] arr = event.getAdvancement().getKey().getKey().split("/");
         if(Objects.equals(arr[0], "recipes")) return;
         HashMap<String, String> request_body = new HashMap<>();
-        request_body.put("content", "** %s has done the advancement [%s]!**".formatted(
+        request_body.put("content", String.format("** %s has done the advancement [%s]!**",
                 MarkdownSanitizer.escape(event.getPlayer().getName()),
                 makeAchievementNameFriendly(arr[arr.length - 1])
         ));

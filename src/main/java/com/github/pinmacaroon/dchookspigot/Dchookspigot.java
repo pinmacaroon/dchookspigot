@@ -82,7 +82,7 @@ public final class Dchookspigot extends JavaPlugin {
                 BOT = new Bot(this.getConfig().getString("functions.bot.token", ""));
             } catch (Exception e){
                 this.getLogger().info("couldn't initialise bot, two way chat disabled");
-                this.getLogger().info("%s:%S".formatted(e.getClass().getName(), e.getMessage()));
+                this.getLogger().info(String.format("%s:%S",e.getClass().getName(), e.getMessage()));
                 return;
             }
         }
@@ -98,7 +98,7 @@ public final class Dchookspigot extends JavaPlugin {
             JsonObject body = GSON.fromJson(response.body(), JsonObject.class);
             if(status != 200){
                 this.getLogger().info(
-                        "the webhook was not found or couldn't reach discord servers! discord said: '%s'".formatted(
+                        String.format("the webhook was not found or couldn't reach discord servers! discord said: '%s'",
                         body.get("message").getAsString()
                 ));
                 return;
@@ -112,7 +112,7 @@ public final class Dchookspigot extends JavaPlugin {
             });
             bot_rutime_thread.start();
         } catch (Exception e) {
-            this.getLogger().info("%s:%S".formatted(e.getClass().getName(), e.getMessage()));
+            this.getLogger().info(String.format("%s:%S",e.getClass().getName(), e.getMessage()));
             throw new RuntimeException(e);
         }
 

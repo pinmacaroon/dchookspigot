@@ -33,12 +33,16 @@ public class WaypointParser {
                         Integer.parseInt(matcher.group(5)),
                         Integer.parseInt(matcher.group(6)),
                 },
-                switch (matcher.group(9)) {
-                    case "overworld" -> "the overworld";
-                    case "the-nether" -> "The Nether";
-                    case "the-end" -> "The End";
-                    default -> "Narnia";
-                }
+                friendlyName(matcher.group(9))
         );
+    }
+
+    private static String friendlyName(String s){
+        switch (s) {
+            case "overworld" : return "the overworld";
+            case "the-nether" : return "The Nether";
+            case "the-end" : return "The End";
+            default : return "Narnia";
+        }
     }
 }

@@ -12,6 +12,7 @@ import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class PromotionProvider {
     public static JsonObject getMcfetchPromotion(){
@@ -23,18 +24,13 @@ public class PromotionProvider {
 
         embed.addProperty("title", "mcfetch: see minecraft server stats without starting the game!");
 
-        embed.addProperty("description", """
-                                a **simple**, **easy to use** and **minimal tool** to see who are online on your \
-                                favorite servers! **no download** needed, **no login** needed! **no ads** and no \
-                                restrictions! all you need to get server information is the **IP** address of the \
-                                server!""");
+        embed.addProperty("description", " a **simple**, **easy to use** and **minimal tool** to see who are online on your  favorite servers! **no download** needed, **no login** needed! **no ads** and no  restrictions! all you need to get server information is the **IP** address of the  server!");
 
         embed.addProperty("color", 15448355);
 
         JsonArray fields = new JsonArray();
         JsonObject field1 = new JsonObject();
-        field1.addProperty("value", """
-                start using it right now at this link: <https://pinmacaroon.github.io/mcfetch/legacy/index.html>""");
+        field1.addProperty("value", "start using it right now at this link: <https://pinmacaroon.github.io/mcfetch/legacy/index.html>");
         field1.addProperty("name", "interested?");
         fields.add(field1);
         embed.add("fields", fields);
@@ -49,9 +45,7 @@ public class PromotionProvider {
         );
 
         JsonObject footer = new JsonObject();
-        footer.addProperty("text", """
-                this was a promotion of first-party services or a tip message! \
-                if you wish to turn this off, go to the configuration file!""");
+        footer.addProperty("text", " this was a promotion of first-party services or a tip message!  if you wish to turn this off, go to the configuration file!");
         embed.add("footer", footer);
         return embed;
     }
@@ -65,18 +59,13 @@ public class PromotionProvider {
 
         embed.addProperty("title", "skinfetch: quickly take a look at one's current skin");
 
-        embed.addProperty("description", """
-                a small and simple web tool to quickly get a view of a user's skin "from multiple angles"! choose from \
-                multiple modes, including but not limited to bust, body, head, skin! toggle the outer layer if you \
-                wish! choose a size (in pixels) and boom! just click on it and download the image!""");
+        embed.addProperty("description", " a small and simple web tool to quickly get a view of a user's skin \"from multiple angles\"! choose from  multiple modes, including but not limited to bust, body, head, skin! toggle the outer layer if you  wish! choose a size (in pixels) and boom! just click on it and download the image!");
 
         embed.addProperty("color", 15448355);
 
         JsonArray fields = new JsonArray();
         JsonObject field1 = new JsonObject();
-        field1.addProperty("value", """
-                gaze upon your fabulous look from your browser now at this link: \
-                <https://pinmacaroon.github.io/skinfetch/index.html>""");
+        field1.addProperty("value", " gaze upon your fabulous look from your browser now at this link:  <https://pinmacaroon.github.io/skinfetch/index.html>");
         field1.addProperty("name", "interested?");
         fields.add(field1);
         embed.add("fields", fields);
@@ -89,9 +78,7 @@ public class PromotionProvider {
         embed.addProperty("timestamp", ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT));
 
         JsonObject footer = new JsonObject();
-        footer.addProperty("text", """
-                this was a promotion of first-party services or a tip message! \
-                if you wish to turn this off, go to the configuration file!""");
+        footer.addProperty("text", " this was a promotion of first-party services or a tip message!  if you wish to turn this off, go to the configuration file!");
         embed.add("footer", footer);
         return embed;
     }
@@ -105,9 +92,7 @@ public class PromotionProvider {
 
         embed.addProperty("title", "Sequoia: Adds a really nice biome with some really tall trees!");
 
-        embed.addProperty("description", """
-                A mod that adds the amazing sequoia forests! Custom \
-                tree types, blocks, structures!""");
+        embed.addProperty("description", " A mod that adds the amazing sequoia forests! Custom  tree types, blocks, structures!");
 
         embed.addProperty("color", 15448355);
 
@@ -115,22 +100,12 @@ public class PromotionProvider {
         JsonArray fields = new JsonArray();
 
         JsonObject field1 = new JsonObject();
-        field1.addProperty("value", """
-                Full block set like you would expect:
-                * Log and Stripped Log
-                * Wood and Stripped Wood
-                * Planks
-                * etc...""");
+        field1.addProperty("value", " Full block set like you would expect: \n* Log and Stripped Log \n* Wood and Stripped Wood \n* Planks \n* etc...");
         field1.addProperty("name", "Sequoia wood type");
         fields.add(field1);
 
         JsonObject field2 = new JsonObject();
-        field2.addProperty("value", """
-                Fresh air, big trees. Really beautiful place to set up camp. \
-                You can even find berry bushes! You can find three types of sequoia trees:
-                * small
-                * medium size
-                * huge (structure, to be added)""");
+        field2.addProperty("value", " Fresh air, big trees. Really beautiful place to set up camp.  You can even find berry bushes! You can find three types of sequoia trees: \n* small \n* medium size \n* huge (structure, to be added)");
         field2.addProperty("name", "Sequoia forest");
         fields.add(field2);
 
@@ -151,9 +126,7 @@ public class PromotionProvider {
         embed.addProperty("timestamp", ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT));
 
         JsonObject footer = new JsonObject();
-        footer.addProperty("text", """
-                this was a promotion of first-party services or a tip message! \
-                if you wish to turn this off, go to the configuration file!""");
+        footer.addProperty("text", " this was a promotion of first-party services or a tip message!  if you wish to turn this off, go to the configuration file!");
 
         embed.add("footer", footer);
         return embed;
@@ -166,9 +139,7 @@ public class PromotionProvider {
 
         embed.addProperty("title", "out of character messages");
 
-        embed.addProperty("description", """
-                            make messages hidden from the mod by ending it with `//`! it wont get transferred to \
-                            Discord! you can configure this in the config file!""");
+        embed.addProperty("description", " make messages hidden from the mod by ending it with `//`! it wont get transferred to  Discord! you can configure this in the config file!");
 
         JsonObject author = new JsonObject();
         author.addProperty("name", "tips and hints");
@@ -177,9 +148,7 @@ public class PromotionProvider {
         embed.addProperty("timestamp", ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT));
 
         JsonObject footer = new JsonObject();
-        footer.addProperty("text", """
-                this was a promotion of first-party services or a tip message! \
-                if you wish to turn this off, go to the configuration file!""");
+        footer.addProperty("text", " this was a promotion of first-party services or a tip message!  if you wish to turn this off, go to the configuration file!");
         embed.add("footer", footer);
         return embed;
     }
@@ -193,10 +162,7 @@ public class PromotionProvider {
 
         embed.addProperty("url", "https://pinmacaroon.github.io/hook/docs.html");
 
-        embed.addProperty("description", """
-                oh noes! you couldn't figure out how to use the mod? i got your back! go to\
-                 <https://pinmacaroon.github.io/hook/docs.html> and see the table with the configuration keys and\
-                 values! this page will be your hub for updates and information concerning the mod.""");
+        embed.addProperty("description", " oh noes! you couldn't figure out how to use the mod? i got your back! go to <https://pinmacaroon.github.io/hook/docs.html> and see the table with the configuration keys and values! this page will be your hub for updates and information concerning the mod.");
 
         JsonObject author = new JsonObject();
         author.addProperty("name", "tips and hints");
@@ -209,9 +175,7 @@ public class PromotionProvider {
         embed.add("image", image);
 
         JsonObject footer = new JsonObject();
-        footer.addProperty("text", """
-                this was a promotion of first-party services or a tip message! \
-                if you wish to turn this off, go to the configuration file!""");
+        footer.addProperty("text", " this was a promotion of first-party services or a tip message!  if you wish to turn this off, go to the configuration file!");
         embed.add("footer", footer);
         return embed;
     }
@@ -223,12 +187,7 @@ public class PromotionProvider {
 
         embed.addProperty("title", "hydration");
 
-        embed.addProperty("description", """
-                **did you drink water today? do you drink enough?**
-                an average daily "total water"\
-                 intake of 3 liters is recommended by the USDA (this includes water from non-drinking water sources,\
-                 like foods). specifically, **eight cups of drinking water a day** is the amount recommended by most\
-                 nutritionists.""");
+        embed.addProperty("description", " **did you drink water today? do you drink enough?**\n an average daily \"total water\" intake of 3 liters is recommended by the USDA (this includes water from non-drinking water sources, like foods). specifically, **eight cups of drinking water a day** is the amount recommended by most nutritionists.");
 
         JsonObject author = new JsonObject();
         author.addProperty("name", "tips and hints");
@@ -237,9 +196,7 @@ public class PromotionProvider {
         embed.addProperty("timestamp", ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT));
 
         JsonObject footer = new JsonObject();
-        footer.addProperty("text", """
-                this was a promotion of first-party services or a tip message! \
-                if you wish to turn this off, go to the configuration file!""");
+        footer.addProperty("text", " this was a promotion of first-party services or a tip message!  if you wish to turn this off, go to the configuration file!");
         embed.add("footer", footer);
         return embed;
     }
@@ -257,9 +214,7 @@ public class PromotionProvider {
         embed.addProperty("timestamp", ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT));
 
         JsonObject footer = new JsonObject();
-        footer.addProperty("text", """
-                this was a promotion of first-party services or a tip message! \
-                if you wish to turn this off, go to the configuration file!""");
+        footer.addProperty("text", " this was a promotion of first-party services or a tip message!  if you wish to turn this off, go to the configuration file!");
         embed.add("footer", footer);
         return embed;
     }
@@ -292,17 +247,19 @@ public class PromotionProvider {
      * be more than 6
      */
     public static @Nullable JsonObject automaticPromotionSelector(){
-        int id = Dchookspigot.RANDOM.nextInt(0, 10);
-        return switch (id) {
-            case 0 -> getMcfetchPromotion();
-            case 1 -> getOocMessageTip();
-            case 2 -> getSequoiaPromotion();
-            case 3 -> getDocumentationTip();
-            case 4 -> getHydrationTip();
-            case 5 -> getSkinfetchPromotion();
-            case 6 -> getCar();
-            default -> null;
-        };
+        //int id = Dchookspigot.RANDOM.nextInt(0, 10);
+        int id = ThreadLocalRandom.current().nextInt(0, 11);
+
+        switch (id) {
+            case 0 : return getMcfetchPromotion();
+            case 1 : return getOocMessageTip();
+            case 2 : return getSequoiaPromotion();
+            case 3 : return getDocumentationTip();
+            case 4 : return getHydrationTip();
+            case 5 : return getSkinfetchPromotion();
+            case 6 : return getCar();
+            default : return null;
+        }
     }
 
     /**

@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 
 public class TimeCommand {
     public static void run(SlashCommandInteractionEvent event) {
-        String response = "The current in-game time in the overworld is **%s**! The weather is %s%s!".formatted(
+        String response = String.format("The current in-game time in the overworld is **%s**! The weather is %s%s!",
                 TimeConverter.timeOfDayToHoursMinutes2(Dchookspigot.getPlugin(Dchookspigot.class).getServer().getWorlds().get(0).getTime()),
                 (Dchookspigot.getPlugin(Dchookspigot.class).getServer().getWorlds().get(0).hasStorm()) ? "rainy" : "clear",
                 (Dchookspigot.getPlugin(Dchookspigot.class).getServer().getWorlds().get(0).isThundering()) ? " and it is thundering" : ""

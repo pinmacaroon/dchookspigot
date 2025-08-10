@@ -7,11 +7,9 @@ import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 public class ListCommand {
     public static void run(SlashCommandInteractionEvent event) {
         StringBuilder list = new StringBuilder();
-        list.append("""
-                There are currently **%d**/%d players online:\s""".formatted(
+        list.append(String.format("There are currently **%d**/%d players online: ",
                 Dchookspigot.getPlugin(Dchookspigot.class).getServer().getOnlinePlayers().toArray().length,
-                Dchookspigot.getPlugin(Dchookspigot.class).getServer().getMaxPlayers()
-        ));
+                Dchookspigot.getPlugin(Dchookspigot.class).getServer().getMaxPlayers()));
         Dchookspigot.getPlugin(Dchookspigot.class).getServer().getOnlinePlayers().forEach(
                 player -> list.append("`").append(player.getName()).append("` ")
         );

@@ -10,13 +10,13 @@ public class StatCommand {
         String list = "Stats of this instance:\n```" +
                 "uptime = ?min\n" +
                 "keepinventory = ?\n" +
-                "mcversion = %s%n".formatted(Dchookspigot.getPlugin(Dchookspigot.class).getServer().getVersion()) +
-                "bukkitversion = %s%n".formatted(Dchookspigot.getPlugin(Dchookspigot.class).getServer().getBukkitVersion()) +
-                "dchookversion = %s%n".formatted(Dchookspigot.VERSION) +
-                "players = %d/%d%n".formatted(
+                String.format("mcversion = %s%n",Dchookspigot.getPlugin(Dchookspigot.class).getServer().getVersion()) +
+                String.format("bukkitversion = %s%n",Dchookspigot.getPlugin(Dchookspigot.class).getServer().getBukkitVersion()) +
+                String.format("dchookversion = %s%n", Dchookspigot.VERSION) +
+                String.format("players = %d/%d%n",
                         Dchookspigot.getPlugin(Dchookspigot.class).getServer().getOnlinePlayers().toArray().length,
                         Dchookspigot.getPlugin(Dchookspigot.class).getServer().getMaxPlayers()) +
-                "memory = ~%smb%n".formatted(Math.rint(
+                String.format("memory = ~%smb%n",Math.rint(
                         (double) (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 / 1024
                 )) +
                 "overworld_border = ?\n```";

@@ -23,7 +23,7 @@ public class VersionChecker {
             try{
                 response = Dchookspigot.HTTPCLIENT.send(request, HttpResponse.BodyHandlers.ofString());
             } catch (Exception exception) {
-                System.out.println("%s:%S".formatted(exception.getClass().getName(), exception.getMessage()));
+                System.out.println(String.format("%s:%S",exception.getClass().getName(), exception.getMessage()));
                 return;
             }
             int status = response.statusCode();
@@ -39,26 +39,20 @@ public class VersionChecker {
                 return;
             }
             if(Dchookspigot.VERSION.withoutBuildMetadata().isLowerThan(remoteVersion.get().withoutBuildMetadata())){
-                System.out.println("""
-                        you are running an older version of the mod! please update to %s! \
-                        link: %s""".formatted(
+                System.out.printf(
+                        "you are running an older version of the mod! please update to %s! link: %s%n",
                         remoteVersion.get(),
                         body.get(0).getAsJsonObject()
                                 .get("files").getAsJsonArray()
                                 .get(0).getAsJsonObject()
                                 .get("url").getAsString()
-                ));
+                );
             }
             else if(Dchookspigot.VERSION.withoutBuildMetadata().isHigherThan(remoteVersion.get().withoutBuildMetadata())){
-                System.out.println("""
-						
-						!!!!!!!!!!!!!!!!!
-						you are running an unreleased version! please do not use this unless you know what you are \
-						doing
-						!!!!!!!!!!!!!!!!!""");
+                System.out.println("!!!!!!!!!!!!!!!!!\nyou are running an unreleased version! please do not use this unless you know what you are doing\n!!!!!!!!!!!!!!!!!");
             }
         } catch (Exception exception) {
-            System.out.println("%s:%S".formatted(exception.getClass().getName(), exception.getMessage()));
+            System.out.println(String.format("%s:%S",exception.getClass().getName(), exception.getMessage()));
         }
     }
 }
