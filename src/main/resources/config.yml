@@ -1,0 +1,26 @@
+# default config file
+functions:
+    mod_enabled: true
+    allow_ooc_messages: true
+    promotions:
+        enabled: true
+    bot:
+        enabled: true
+        token: "TOKEN"
+    update: true
+webhook:
+    url: "WEBHOOK_URL"
+messages:
+    server:
+        starting:
+            message: The server is starting!
+            allowed: true
+        stopped:
+            message: The server has been stopped!
+            allowed: true
+        started:
+            message: The server has started!
+            allowed: true
+        stopping:
+            message: The server is stopping!
+            allowed: true

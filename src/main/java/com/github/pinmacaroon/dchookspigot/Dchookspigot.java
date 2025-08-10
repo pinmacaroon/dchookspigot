@@ -29,7 +29,7 @@ public final class Dchookspigot extends JavaPlugin {
     public static final Version VERSION = new Version.Builder()
             .setMajorVersion(1)
             .setMinorVersion(0)
-            .setPatchVersion(1)
+            .setPatchVersion(2)
             .setBuildMetadata("spigot")
             //.setPreReleaseVersion("alpha", "2")
             .build();
@@ -49,29 +49,15 @@ public final class Dchookspigot extends JavaPlugin {
             File file = new File(this.getDataFolder(), "config.yml");
             if (!file.exists()) {
                 this.getLogger().info("Config.yml not found, creating!");
-                //this.saveDefaultConfig();
 
-                this.getConfig().set("functions.mod_enabled", true);
-                this.getConfig().set("functions.allow_ooc_messages", true);
-                this.getConfig().set("functions.promotions.enabled", true);
-                this.getConfig().set("functions.bot.enabled", true);
-                this.getConfig().set("functions.bot.token", "TOKEN");
-                this.getConfig().set("functions.update", true);
-                this.getConfig().set("webhook.url", "WEBHOOK_URL");
-                this.getConfig().set("messages.server.starting.message", "The server is starting!");
-                this.getConfig().set("messages.server.stopped.message", "The server has been stopped!");
-                this.getConfig().set("messages.server.started.message", "The server has started!");
-                this.getConfig().set("messages.server.stopping.message", "The server is stopping!");
-                this.getConfig().set("messages.server.starting.allowed", true);
-                this.getConfig().set("messages.server.stopped.allowed", true);
-                this.getConfig().set("messages.server.started.allowed", true);
-                this.getConfig().set("messages.server.stopping.allowed", true);
+                this.getConfig().options().copyDefaults(true);
 
-                this.saveConfig();
+                this.saveDefaultConfig();
             } else {
                 this.getLogger().info("Config.yml found, loading!");
             }
         } catch (Exception e) {
+            //TODO replace shitstain error handling with normal error handling
             e.printStackTrace();
         }
     }
