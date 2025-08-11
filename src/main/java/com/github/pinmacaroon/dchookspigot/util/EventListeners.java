@@ -1,10 +1,6 @@
 package com.github.pinmacaroon.dchookspigot.util;
 
 import com.github.pinmacaroon.dchookspigot.Dchookspigot;
-import com.github.pinmacaroon.dchookspigot.bot.Bot;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
-import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.utils.MarkdownSanitizer;
 import org.bukkit.Achievement;
 import org.bukkit.event.EventHandler;
@@ -26,41 +22,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
 public class EventListeners implements Listener {
 
     private boolean hasReadyMessageBeenSent = false;
 
-    private static void setupStatChannel(Bot bot, String id, String name, int retry){
-        if (Dchookspigot.CONFIG.getBoolean("functions.status_channels."+id+".enabled")){
-            Guild guild = bot.getJDA().getGuildById(Dchookspigot.guild_id);
-            if(guild == null){
-                System.out.println("guild == null");
-                return;
-            }
-            VoiceChannel channel = guild.getVoiceChannelById(
-                    Dchookspigot.CONFIG.getLong("functions.status_channels."+id+".channel")
-            );
-            if (channel == null) {
-                System.out.println("channel == null");
-                return;
-            }
-            System.out.println("channel");
-            // TODO fix the damn rate limit thingamabop
-            channel.getManager().setName(name).queue(x -> {}, throwable -> {});
-        }
-    }
-
-    private static void setupStatChannel(Bot bot, String id, String name){
-        setupStatChannel(bot, id, name, 0);
-    }
-
     public static void onInit() {
-        setupStatChannel(Dchookspigot.BOT, "player_count", "Players: 0/" + Dchookspigot.getPlugin(
-                Dchookspigot.class).getServer().getMaxPlayers()
-        );
-        setupStatChannel(Dchookspigot.BOT, "server_status", "Status: Online");
         if (!Dchookspigot.CONFIG.getBoolean("messages.server.starting.allowed")) return;
         HashMap<String, String> request_body = new HashMap<>();
         request_body.put("content", "**" + Dchookspigot.CONFIG.getString("messages.server.starting.message", "") + "**");
@@ -96,12 +63,6 @@ public class EventListeners implements Listener {
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
-
-        setupStatChannel(Dchookspigot.BOT, "player_count",
-                "Players: " +
-                        Dchookspigot.getPlugin(Dchookspigot.class).getServer().getOnlinePlayers().size() +
-                        "/" + Dchookspigot.getPlugin(Dchookspigot.class).getServer().getMaxPlayers()
-        );
     }
 
     @EventHandler
@@ -121,12 +82,6 @@ public class EventListeners implements Listener {
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
-
-        setupStatChannel(Dchookspigot.BOT, "player_count",
-                "Players: " +
-                        (Dchookspigot.getPlugin(Dchookspigot.class).getServer().getOnlinePlayers().size()-1) +
-                        "/" + Dchookspigot.getPlugin(Dchookspigot.class).getServer().getMaxPlayers()
-        );
     }
 
     @EventHandler
