@@ -6,18 +6,10 @@ functions:
         enabled: true
     bot:
         enabled: true
-        token: TOKEN
+        token: "TOKEN"
     update: true
-    # unstable/broken beta feature
-    status_channels:
-        player_count:
-            enabled: false
-            channel: CHANNEL_ID
-        server_status:
-            enabled: false
-            channel: CHANNEL_ID
 webhook:
-    url: WEBHOOK_URL
+    url: "WEBHOOK_URL"
 messages:
     server:
         starting:

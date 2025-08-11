@@ -6,11 +6,12 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.utils.MarkdownSanitizer;
+import org.bukkit.Achievement;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerAdvancementDoneEvent;
+import org.bukkit.event.player.PlayerAchievementAwardedEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.server.PluginDisableEvent;
@@ -23,6 +24,7 @@ import java.net.http.HttpResponse;
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
@@ -146,12 +148,16 @@ public class EventListeners implements Listener {
         }
     }
 
+    private String makeAchievementNameFriendly(Achievement achievement){
+        return Unformat.toTitleCase(achievement.name().replaceAll("_", " ").toLowerCase());
+    }
+
     @EventHandler
-    public void onAdvancementDone(PlayerAdvancementDoneEvent event) {
+    public void onAdvancementDone(PlayerAchievementAwardedEvent event) {
         HashMap<String, String> request_body = new HashMap<>();
         request_body.put("content", "** %s has done the advancement [%s]!**".formatted(
                 MarkdownSanitizer.escape(event.getPlayer().getName()),
-                event.getAdvancement().getDisplay().getTitle()
+                makeAchievementNameFriendly(event.getAchievement())
         ));
         request_body.put("username", "game");
 

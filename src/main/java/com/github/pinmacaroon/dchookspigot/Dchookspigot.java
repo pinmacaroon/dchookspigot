@@ -28,20 +28,18 @@ public final class Dchookspigot extends JavaPlugin {
     );
     public static final Version VERSION = new Version.Builder()
             .setMajorVersion(1)
-            .setMinorVersion(2)
-            .setPatchVersion(0)
-            .setBuildMetadata("spigot")
-            .setPreReleaseVersion("dev", "1")
+            .setMinorVersion(0)
+            .setPatchVersion(2)
+            .setBuildMetadata("spigot", "1", "8", "8")
+            //.setPreReleaseVersion("alpha", "2")
             .build();
-    public static Bot BOT;
+    private static Bot BOT;
     public static final HttpClient HTTPCLIENT = HttpClient.newHttpClient();
     public static Logger LOGGER;
     public static FileConfiguration CONFIG;
     public static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
             .create();
-    public static long guild_id;
-    public static long channel_id;
 
     private void createConfig() {
         try {
@@ -59,6 +57,7 @@ public final class Dchookspigot extends JavaPlugin {
                 this.getLogger().info("Config.yml found, loading!");
             }
         } catch (Exception e) {
+            //TODO replace shitstain error handling with normal error handling
             e.printStackTrace();
         }
     }
@@ -96,7 +95,7 @@ public final class Dchookspigot extends JavaPlugin {
 
             HttpResponse<String> response = HTTPCLIENT.send(get_webhook, HttpResponse.BodyHandlers.ofString());
             int status = response.statusCode();
-            JsonObject body = JsonParser.parseString(response.body()).getAsJsonObject();
+            JsonObject body = GSON.fromJson(response.body(), JsonObject.class);
             if(status != 200){
                 this.getLogger().info(
                         "the webhook was not found or couldn't reach discord servers! discord said: '%s'".formatted(
@@ -104,8 +103,6 @@ public final class Dchookspigot extends JavaPlugin {
                 ));
                 return;
             }
-            guild_id = body.get("guild_id").getAsLong();
-            channel_id = body.get("channel_id").getAsLong();
             Thread bot_rutime_thread = new Thread(() -> {
                 while (BOT == null) {
                     Thread.onSpinWait();
@@ -136,7 +133,7 @@ public final class Dchookspigot extends JavaPlugin {
     public void onDisable() {
         BOT.stop();
         EventListeners.onStop();
-        HTTPCLIENT.shutdown();
+        //HTTPCLIENT.shutdown();
         this.saveConfig();
     }
 }
